@@ -45,12 +45,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         Log.d("LOG", editText1.text.toString())
 
 //        textView.text = editText1.text
-        if(editText1.text.toString() != "" && editText2.text.toString() != ""){
+        if(editText2.text.toString()== "0" && type==4 && editText1.text.toString() != ""){
+            Snackbar.make(v, "0では割れません.", Snackbar.LENGTH_SHORT)
+                .show()
+        }else if(editText1.text.toString() != "" && editText2.text.toString() != ""){
             intent.putExtra("VALUE1", editText1.text.toString().toFloat())
             intent.putExtra("VALUE2", editText2.text.toString().toFloat())
             startActivity(intent)
         }else{
-            Snackbar.make(v, "2つとも数値を入力してください！", Snackbar.LENGTH_SHORT)
+            Snackbar.make(v, "2つとも数値を入力してください.", Snackbar.LENGTH_SHORT)
                 .show()
         }
 
